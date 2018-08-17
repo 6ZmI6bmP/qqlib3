@@ -8,8 +8,12 @@
 Examble：
 
 qq = "190758586"
+
 p = 'xxxxxxxxxx'
+
 third_url = 'http://www.58pic.com/index.php?m=login&a=snsLogin&type=qq&isRedirect=1'
+
 qq = QQ(third_url=third_url, qq=q, password=p)
+
 print(qq.login())
 
