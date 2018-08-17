@@ -7,6 +7,8 @@
 
 Examble：
 
+from qqlib3 import QQ
+
 qq = "190758586"
 
 p = 'xxxxxxxxxx'
