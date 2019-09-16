@@ -592,5 +592,5 @@ if __name__ == '__main__':
     qq = "190758586"
     p = 'xxxx'
     third_url = 'https://www.58pic.com/index.php?m=login&a=snsLogin&type=qq&isRedirect=1'
-    qq = QQ(third_url=third_url, qq=qq, password=p, qr=True)
+    qq = QQ(third_url=third_url, qq=qq, password=p)
     print(qq.login)
