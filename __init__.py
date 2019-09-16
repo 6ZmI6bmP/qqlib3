@@ -26,7 +26,7 @@ import requests
 import sys
 import tempfile
 from PIL import Image
-from .const import headers, headers2
+from const import headers, headers2
 
 requests.packages.urllib3.disable_warnings()
 
@@ -385,18 +385,16 @@ class QQ:
 
     @property
     def __fetch_jumpurl(self):
-        hosts = re.findall('http://(.*?)/', self.third_url)[0]
+        hosts = re.search('http[s]?://(.*?)/', self.third_url)[1]
         headers = {
             'Host': hosts,
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
-            'Accept-Encoding': 'gzip, deflate',
             'Connection': 'keep-alive',
             'Upgrade-Insecure-Requests': '1',
-            'Referer': 'http://%s/' % hosts,
-            'Pragma': 'no-cache',
-            'Cache-Control': 'no-cache',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.56 Safari/537.36',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,pl;q=0.7,fr;q=0.6',
         }
         r = self.fetch(self.third_url, headers=headers, allow_redirects=False)
         self.r = r
@@ -592,7 +590,7 @@ class QQ:
 
 if __name__ == '__main__':
     qq = "190758586"
-    p = 'xxxxxxxxxx'
-    third_url = 'http://www.58pic.com/index.php?m=login&a=snsLogin&type=qq&isRedirect=1'
-    qq = QQ(third_url=third_url, qq=q, password=p)
-    print(qq.login())
+    p = 'xxxx'
+    third_url = 'https://www.58pic.com/index.php?m=login&a=snsLogin&type=qq&isRedirect=1'
+    qq = QQ(third_url=third_url, qq=qq, password=p, qr=True)
+    print(qq.login)

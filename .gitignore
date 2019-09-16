@@ -1,0 +1,8 @@
+*.egg
+*__pycache__
+*.pyc
+*.bak
+.idea
+*test.py
+*.log
+*.jpg

@@ -663,6 +663,11 @@ function d(t, e) {
     }
 }
 
+function t(n, t) {
+    var r = (65535 & n) + (65535 & t), u = (n >> 16) + (t >> 16) + (r >> 16);
+    return u << 16 | 65535 & r
+}
+
 function getEncryption(e, i, n, o) {
     n = n || "", e = e || "";
     for (var p = o ? e : t(e), r = g(p), s = t(r + i), a = TEA.strToBytes(n.toUpperCase(), !0), l = Number(a.length / 2).toString(16); l.length < 4;)
